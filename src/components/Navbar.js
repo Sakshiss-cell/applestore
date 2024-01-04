@@ -2,7 +2,7 @@ import React from "react";
 
 function Navbar() {
   return (
-    <nav className="bg-gray-900 shadow">
+    <nav className="bg-customBlueGray shadow">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16 items-center">
         {/* Brand */}
         <div className="flex-shrink-0 flex items-center">
@@ -12,14 +12,14 @@ function Navbar() {
         <div className="flex justify-center flex-grow">
           <input
             type="text"
-            className="w-f h-10 px-4 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+            className="w-1/2 h-10 px-4 border bg-customDarkBlue border-none rounded-full focus:outline-none focus:border-none"
             placeholder="Search"
           />
         </div>
         {/* User Icon */}
         <div className="flex items-center">
           <p className="text-white">User</p>
-          {/* You can replace 'User' with an actual user icon */}
+  
           <svg
             className="h-8 w-8 ml-4 fill-current text-white"
             xmlns="http://www.w3.org/2000/svg"
