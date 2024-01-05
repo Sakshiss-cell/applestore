@@ -3,11 +3,11 @@ import appleimg from "../appleimg.png";
 
 function JobList({ filteredJobs }) {
   return (
-    <div className="bg-customDarkBlue p-2 rounded-lg flex-grow m-5">
+    <div className="bg-customDarkBlue p-2  rounded-lg flex-grow m-4">
       <div className="text-white">
         {filteredJobs.length > 0 ? (
           filteredJobs.map((job) => (
-            <div className="w-full rounded-3xl shadow-md my-4" key={job.title}>
+            <div className="w-full rounded-3xl shadow-md mb-2 " key={job.title}>
               <div className="bg-customBlueGray text-white rounded-md flex items-center p-4">
                 <div className="flex items-center flex-grow">
                   <div className="bg-white w-12 h-12 flex items-center justify-center rounded-md mr-4">

@@ -29,7 +29,7 @@ const App = () => {
 
 
   return (
-    <div className="App">
+    <div className="bg-customDarkBlue">
       <Navbar onSearch={handleSearch} />
       <ParentComponent filteredJobs={filteredJobs} />
     </div>
