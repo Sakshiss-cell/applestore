@@ -8,7 +8,7 @@ const App = () => {
   const [filteredJobs, setFilteredJobs] = useState([]);
 
   useEffect(() => {
-    fetch("http://demo7220488.mockable.io/")
+    fetch("https://demo7220488.mockable.io/")
       .then((response) => response.json())
       .then((data) => {
         setJobs(data.jobs);
@@ -19,17 +19,15 @@ const App = () => {
       });
   }, []);
 
-
   const handleSearch = (input) => {
-    const filteredData = jobs.filter(job =>
+    const filteredData = jobs.filter((job) =>
       job.title.toLowerCase().includes(input.toLowerCase())
     );
     setFilteredJobs(filteredData);
   };
 
-
   return (
-    <div className="bg-customDarkBlue">
+    <div className="bg-customDarkBlue flex flex-wrap">
       <Navbar onSearch={handleSearch} />
       <ParentComponent filteredJobs={filteredJobs} />
     </div>

@@ -95,7 +95,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="bg-customDarkBlue text-customGray p-6 m-6 border-2 border-black rounded-md">
+    <div className="bg-customDarkBlue text-customGray p-4 m-6 mr-0 ml-2 border-2 border-black rounded-md">
       <h2 className="text-lg font-semibold mb-4 ">Filter by</h2>
 
       <div>

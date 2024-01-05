@@ -13,12 +13,12 @@ function Navbar({onSearch}) {
  
 
   return (
-    <nav className="bg-customBlueGray shadow">
+    <nav className="bg-customBlueGray shadow w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16 items-center">
         <div className="flex-shrink-0 flex items-center">
           <p className="text-white font-semibold text-2xl">Jobs</p>
         </div>
-        {/* Search Box */}
+    
         <div className="flex justify-center flex-grow">
           <input
             type="text"
