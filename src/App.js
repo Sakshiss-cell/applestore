@@ -26,10 +26,21 @@ const App = () => {
     setFilteredJobs(filteredData);
   };
 
+  const handler = (key, id) => {
+    if(id===null) {
+      setFilteredJobs(jobs);
+      return;
+    }
+    const filteredData = jobs.filter((job) =>
+      job[key]===id.toString()
+    );
+    setFilteredJobs(filteredData);
+  }
+
   return (
     <div className="bg-customDarkBlue flex flex-wrap">
       <Navbar onSearch={handleSearch} />
-      <ParentComponent filteredJobs={filteredJobs} />
+      <ParentComponent filteredJobs={filteredJobs} handler={handler} />
     </div>
   );
 };

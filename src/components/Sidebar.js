@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const Sidebar = () => {
-  const [selectedCompanies, setSelectedCompanies] = useState([]);
+const Sidebar = ({handler}) => {
+  const [selectedCompany, setSelectedCompany] = useState(null);
   const [selectedLocations, setSelectedLocations] = useState([]);
   const [selectedDatePosted, setSelectedDatePosted] = useState("");
   const [selectedSalaryRange, setSelectedSalaryRange] = useState("");
@@ -56,7 +56,7 @@ const Sidebar = () => {
   const educationOptions = ["Bachelors", "Masters", "Phd", "Diploma"];
 
   const clearAllFilters = () => {
-    setSelectedCompanies([]);
+    setSelectedCompany(null);
     setSelectedLocations([]);
     setSelectedDatePosted("");
     setSelectedSalaryRange("");
@@ -65,13 +65,13 @@ const Sidebar = () => {
     setSelectedEducation("");
   };
 
-  const toggleCompany = (companyId) => {
-    const isSelected = selectedCompanies.includes(companyId);
-    if (isSelected) {
-      setSelectedCompanies(selectedCompanies.filter((id) => id !== companyId));
-    } else {
-      setSelectedCompanies([...selectedCompanies, companyId]);
-    }
+  useEffect(() => {
+    if(selectedCompany===null) handler("id", null);
+  }, [selectedCompany]);
+
+  const toggleCompany = (event, companyId) => {
+    handler("id", event.target.checked ? companyId:null);
+    setSelectedCompany(companyId);
   };
 
   const toggleLocation = (locationId) => {
@@ -105,8 +105,8 @@ const Sidebar = () => {
             <input
               type="checkbox"
               id={`company_${company.id}`}
-              checked={selectedCompanies.includes(company.id)}
-              onChange={() => toggleCompany(company.id)}
+              checked={selectedCompany===company.id}
+              onChange={(event) => toggleCompany(event, company.id)}
               className="form-checkbox h-5 w-5  text-blue-500 rounded focus:ring-2 focus:ring-blue-400 focus:outline-none bg-slate-500"
             />
             <label
