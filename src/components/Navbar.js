@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
-function Navbar() {
+function Navbar({onSearch}) {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleInputChange = (event) => {
+    const userInput = event.target.value;
+    setSearchTerm(userInput);
+    onSearch(userInput); // Pass the user input to the parent component
+    console.log(userInput);
+  };
+
+ 
+
   return (
     <nav className="bg-customBlueGray shadow">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16 items-center">
-        {/* Brand */}
         <div className="flex-shrink-0 flex items-center">
           <p className="text-white font-semibold text-2xl">Jobs</p>
         </div>
@@ -12,14 +22,16 @@ function Navbar() {
         <div className="flex justify-center flex-grow">
           <input
             type="text"
-            className="w-1/2 h-10 px-4 border bg-customDarkBlue border-none rounded-full focus:outline-none focus:border-none"
+            className="w-1/2 h-10 px-4 border bg-customDarkBlue  text-customGray border-none rounded-full focus:outline-none focus:border-none"
             placeholder="Search"
+            value={searchTerm}
+            onChange={handleInputChange}
           />
         </div>
-        {/* User Icon */}
+
         <div className="flex items-center">
           <p className="text-white">User</p>
-  
+
           <svg
             className="h-8 w-8 ml-4 fill-current text-white"
             xmlns="http://www.w3.org/2000/svg"
